@@ -1,0 +1,26 @@
+plugins {
+    id 'application'
+    id 'org.graalvm.buildtools.native' version '0.9.17'
+}
+
+application {
+    mainClass = 'gradle.graalvm.skeleton.Main'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.graalvm.sdk:graal-sdk:22.3.0'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.14.0'
+    // implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.4.2'
+}
+
+graalvmNative {
+    binaries {
+        main {
+            requiredVersion = '22.3'
+        }
+    }
+}
